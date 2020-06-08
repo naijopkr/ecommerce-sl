@@ -1,4 +1,5 @@
 import ecommerce as ec
+
 from utils import wait_for_enter
 
 if __name__ == '__main__':
@@ -54,3 +55,38 @@ if __name__ == '__main__':
         'Length of Membership',
         'yearly_spent_vs_length_membership'
     )
+
+
+    # Training and testing data
+
+    # Get training and testing set
+    features = [
+        'Avg. Session Length',
+        'Time on App',
+        'Time on Website',
+        'Length of Membership'
+    ]
+    X = df[features]
+    y = df['Yearly Amount Spent']
+    X_train, X_test, y_train, y_test = ec.train_test_split(X,y,test_size=0.3)
+
+    lm = ec.get_linear_regression(X_train,y_train)
+
+    # Predict off the X_test data set
+    predictions = lm.predict(X_test)
+    ec.scatterplot(y_test,predictions,name='real_vs_predictions')
+
+    # Evaluate model
+    ec.evaluate_model(y_test, predictions)
+
+    # Plot a histogram of the residuals (y_test - predictions)
+    ec.distplot(y_test-predictions, name='residuals')
+
+    # Create a dataframe with the coefficients of the linear model
+    coefficients = ec.get_coefficients_dataframe(
+        lm.coef_,
+        features,
+        columns=['Coefficients']
+    )
+    print(coefficients)
+    print()
