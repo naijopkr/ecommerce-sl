@@ -70,10 +70,13 @@ def evaluate_model(y_test, predictions):
     mae = metrics.mean_absolute_error(y_test, predictions)
     mse = metrics.mean_squared_error(y_test, predictions)
     rmse = np.sqrt(mse)
+    evs = metrics.explained_variance_score(y_test, predictions)
+
 
     print('MAE: ', mae)
     print('MSE: ', mse)
     print('RMSE: ', rmse)
+    print('EVS: ', evs)
     print()
 
 
