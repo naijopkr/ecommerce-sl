@@ -26,3 +26,8 @@ def jointplot(
 def pairplot(data: DataFrame, name='pairplot'):
     sns.pairplot(data)
     plt.savefig(ROOT + f'/output/{name}.png')
+
+
+def lmplot(data: DataFrame, x: str, y: str, name='lmplot'):
+    sns.lmplot(x,y,data)
+    plt.savefig(ROOT + f'/output/{name}.png')

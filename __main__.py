@@ -43,3 +43,14 @@ if __name__ == '__main__':
 
     # Create pairplot of the data set
     ec.pairplot(df)
+
+
+    # Create a linear model plot (sns.lmplot) of
+    # 'Yearly Amount Spent' vs 'Length of Membership'
+    # (most correlated features)
+    ec.lmplot(
+        df,
+        'Yearly Amount Spent',
+        'Length of Membership',
+        'yearly_spent_vs_length_membership'
+    )
