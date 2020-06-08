@@ -21,3 +21,8 @@ def jointplot(
 ):
     sns.jointplot(x,y,data=data,kind=kind)
     plt.savefig(ROOT + f'/output/{name}.png')
+
+
+def pairplot(data: DataFrame, name='pairplot'):
+    sns.pairplot(data)
+    plt.savefig(ROOT + f'/output/{name}.png')

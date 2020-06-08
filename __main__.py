@@ -39,3 +39,7 @@ if __name__ == '__main__':
         name='time_on_app_vs_length_membership',
         kind='hex'
     )
+
+
+    # Create pairplot of the data set
+    ec.pairplot(df)
