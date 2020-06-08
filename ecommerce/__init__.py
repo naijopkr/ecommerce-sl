@@ -12,6 +12,12 @@ def fetch_data():
     return pd.read_csv(ROOT + '/data/ecommerce-customers.csv')
 
 
-def jointplot(data: DataFrame, x: str, y: str,name = 'jointplot'):
-    sns.jointplot(x,y,data=data)
+def jointplot(
+    data: DataFrame,
+    x: str,
+    y: str,
+    name = 'jointplot',
+    kind='scatter'
+):
+    sns.jointplot(x,y,data=data,kind=kind)
     plt.savefig(ROOT + f'/output/{name}.png')

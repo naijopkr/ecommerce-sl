@@ -29,3 +29,13 @@ if __name__ == '__main__':
         y='Yearly Amount Spent',
         name='time_on_app_vs_yearly'
     )
+
+    # Create jointplot with 2D hex bin
+    # of 'Time on App' vs 'Length of Membership'
+    ec.jointplot(
+        df,
+        x='Time on App',
+        y='Length of Membership',
+        name='time_on_app_vs_length_membership',
+        kind='hex'
+    )
